@@ -1,9 +1,8 @@
 #!/bin/sh
 ######################################################
-# Murphy  -  tmurphy@schonfeld.com
+# Murphy  - trmurphy@protonmail.com
 # mkcd4sfc.sh
 #
-# Schonfeld Strategic Advisors LLC.  6/2020
 #
 # downloads sfc drivers for ubuntu and creates cdrom
 # mount the outpout iso file as a cdrom via the hp ilo
