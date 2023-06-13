@@ -15,18 +15,23 @@ import sys
 import time
 import pyinotify
 
+########################################
+# Define the directory to monitor
+########################################
+directory_to_watch = '/some/directory/path/'
+
+
+
 # Create a subclass of ProcessEvent to handle events
 class EventHandler(pyinotify.ProcessEvent):
     def process_IN_CLOSE_WRITE(self, event):
-        # This method will be triggered when a file is closed after writing
-        print("New file created:", event.pathname)
         ##################################################################
         # DO STUFF HERE
+        # This method will be triggered when a file is closed after writing
+        # this would be the place to add your own functionality.
         ##################################################################
-       
+       print("New file created:", event.pathname)
 
-# Define the directory to monitor
-directory_to_watch = '/home/nmsqa/vanij/logs/'
 
 # Initialize the WatchManager and EventHandler
 wm = pyinotify.WatchManager()
