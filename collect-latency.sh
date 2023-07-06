@@ -21,7 +21,7 @@
 # 12.192.234.186: tcp seq=4 port=22221 timeout=5 time=40.718947537243366 ms
 #############################################
 
-. /home/unixsa/dev/bin/activate
+. $HOME/dev/bin/activate
 
 LOGFILE="/var/tmp/timelog"
 IPADDY="12.12.12.12"
