@@ -22,8 +22,8 @@ maillist="trmurphy@emailaddress.com"
 # send email
 ########################################
 def sendemail():
-    FROM="thomas.murphy@stonex.com"
-    TO="thomas.murphy@stonex.com"
+    FROM="user@domain.com"
+    TO="user@domain.com"
     SERVER="SMTP_SERVER_IP_ADDRESS_GOES_HERE"
     SUBJECT="mailstuff: "+hostname+""
     TEXT="test email\n\n"
