@@ -1,0 +1,55 @@
+---
+- name: add directories and links
+  hosts:  BS
+  gather_facts: false
+  tasks:
+
+   - name: Create directory /Data/eqtech
+     ansible.builtin.file:
+       path: /Data/eqtech
+       state: directory
+       mode: '0755'
+       owner: eqtech
+       group: eqtech
+
+   - name: Create directory /Data/fix
+     ansible.builtin.file:
+       path: /Data/fix
+       state: directory
+       mode: '0755'
+       owner: eqtech
+       group: eqtech
+
+   - name: Create directory /Data/moapp
+     ansible.builtin.file:
+       path: /Data/moapp
+       state: directory
+       mode: '0755'
+       owner: eqtech
+       group: eqtech
+
+   - name: remove directorys that require links
+     ansible.builtin.file:
+       path: '{{ item.path }}'
+       state: absent
+     loop:
+       - { path: /home/eqtech }
+       - { path: /opt/eqtech }
+       - { path: /home/fix }
+       - { path: /opt/fix }
+       - { path: /home/moapp }
+       - { path: /opt/mpapp }
+
+
+   - name: Create links
+     ansible.builtin.file:
+       src: '{{ item.src }}'
+       dest: '{{ item.dest }}'
+       state: link
+     loop:
+       - { src: /Data/eqtech, dest: /home/eqtech }
+       - { src: /Data/eqtech, dest: /opt/eqtech }
+       - { src: /Data/fix, dest: /home/fix }
+       - { src: /Data/fix, dest: /opt/fix }
+       - { src: /Data/moapp, dest: /home/moapp }
+       - { src: /Data/moapp, dest: /opt/mpapp }
